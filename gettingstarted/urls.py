@@ -4,6 +4,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 import hello.views
+from .views import home
+from usermgmt import urls as usermgmt_urls
 
 # Examples:
 # url(r'^$', 'gettingstarted.views.home', name='home'),
@@ -11,7 +13,8 @@ import hello.views
 
 urlpatterns = [
     # url(r'^$', hello.views.index, name='index'),
-    url(r'^$', 'gettingstarted.views.home'),
+    url(r'^$', home),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^user/', include(usermgmt_urls)),
 ]
