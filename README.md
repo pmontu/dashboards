@@ -1,3 +1,10 @@
+# steps i followed
+
+1. clone heroku python django starter project (additionaly add remote to github) and deploy it.
+2. create a virtual environment and run pip install -r requirements.txt
+3. created static folder and index.html in base dir and set staticfiles_dir
+
+
 # python-getting-started
 
 A barebones Python app, which can easily be deployed to Heroku.
