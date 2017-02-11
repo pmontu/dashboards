@@ -1,52 +1,23 @@
-# steps i followed
+# Dashboards
 
-1. clone heroku python django starter project (additionaly add remote to github) and deploy it.
-2. create a virtual environment and run pip install -r requirements.txt
-3. created static folder and index.html in base dir and set staticfiles_dir
-4. 
+## Rest framework for User Table
 
+### Signup
 
-# python-getting-started
+POST http://my-dashboards.herokuapp.com/user/
 
-A barebones Python app, which can easily be deployed to Heroku.
+### List ussers
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+GET http://my-dashboards.herokuapp.com/user/
 
-## Running Locally
+### Retrieve user
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+GET http://my-dashboards.herokuapp.com/user/:id
 
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
+### Update user 
 
-$ pip install -r requirements.txt
+PATCH http://my-dashboards.herokuapp.com/user/:id
 
-$ createdb python_getting_started
+### Delete user
 
-$ python manage.py migrate
-$ python manage.py collectstatic
-
-$ heroku local
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+DELETE http://my-dashboards.herokuapp.com/user/:id
