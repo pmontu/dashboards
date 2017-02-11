@@ -16,7 +16,6 @@ class UserSerializer(serializers.Serializer):
         return User.objects.create_user(**validated_data)
 
     def update(self, instance, validated_data):
-        import ipdb; ipdb.set_trace()
         instance.first_name = validated_data.get('first_name', instance.first_name)
         instance.last_name = validated_data.get('last_name', instance.last_name)
         instance.email = validated_data.get('email', instance.email)
