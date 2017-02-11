@@ -2,12 +2,9 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 
 
-class UserSerializer(serializers.Serializer):
+class UserSerializerMixin(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     username = serializers.CharField(max_length=30)
-    password = serializers.CharField(
-        max_length=128, write_only=True,
-        style={'input_type': 'password'})
     first_name = serializers.CharField(max_length=30, required=False, allow_blank=True)
     last_name = serializers.CharField(max_length=30, required=False, allow_blank=True)
     email = serializers.EmailField(required=False, allow_blank=True)
@@ -27,3 +24,17 @@ class UserSerializer(serializers.Serializer):
 
     class Meta:
         model = User
+
+
+class UserSerializer(UserSerializerMixin):
+    password = serializers.CharField(
+        max_length=128, write_only=True,
+        style={'input_type': 'password'})
+
+
+class UserDetailSerializer(UserSerializerMixin):
+    password = serializers.CharField(
+        max_length=128, write_only=True,
+        style={'input_type': 'password'},
+        required=False, allow_blank=True
+    )
