@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'hello',
     'usermgmt',
     'rest_framework',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
