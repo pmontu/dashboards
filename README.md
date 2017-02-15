@@ -4,20 +4,20 @@
 
 ### Signup
 
-POST http://my-dashboards.herokuapp.com/user/
+POST http://127.0.0.1/user/
 
 ### List ussers
 
-GET http://my-dashboards.herokuapp.com/user/
+GET http://127.0.0.1/user/
 
 ### Retrieve user
 
-GET http://my-dashboards.herokuapp.com/user/:id
+GET http://127.0.0.1/user/:id
 
 ### Update user 
 
-PATCH http://my-dashboards.herokuapp.com/user/:id
+PATCH http://127.0.0.1/user/:id
 
 ### Delete user
 
-DELETE http://my-dashboards.herokuapp.com/user/:id
+DELETE http://127.0.0.1/user/:id
