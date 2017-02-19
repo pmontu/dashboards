@@ -4,6 +4,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework import serializers
 
 from .serializers import UserSerializer, UserDetailSerializer
+from .permissions import UserPermission
 from utils.mixins import MultiSerializerViewSetMixin
 
 
@@ -12,6 +13,7 @@ class UserViewSet(MultiSerializerViewSetMixin, ModelViewSet):
     serializer_action_classes = {
         'update': UserDetailSerializer,
     }
+    permission_classes = (UserPermission,)
     queryset = User.objects.all()
 
     def perform_create(self, serializer):
