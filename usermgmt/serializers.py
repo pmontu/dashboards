@@ -4,6 +4,7 @@ from rest_framework import serializers
 
 class UserSerializerMixin(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
+    is_superuser = serializers.BooleanField(read_only=True)
     first_name = serializers.CharField(max_length=30, required=False, allow_blank=True)
     last_name = serializers.CharField(max_length=30, required=False, allow_blank=True)
     email = serializers.EmailField(required=False, allow_blank=True)
