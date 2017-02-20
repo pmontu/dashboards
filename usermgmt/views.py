@@ -23,3 +23,10 @@ class UserViewSet(MultiSerializerViewSetMixin, ModelViewSet):
                 raise serializers.ValidationError("User already exists")
         except User.DoesNotExist:
             serializer.save()
+
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        if pk == "current":
+            return self.request.user
+        return super(UserViewSet, self).get_object()
+
