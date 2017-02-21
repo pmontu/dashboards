@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
+from .models import Profile
+
 
 class UserSerializerMixin(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
@@ -8,6 +10,10 @@ class UserSerializerMixin(serializers.Serializer):
     first_name = serializers.CharField(max_length=30, required=False, allow_blank=True)
     last_name = serializers.CharField(max_length=30, required=False, allow_blank=True)
     email = serializers.EmailField(required=False, allow_blank=True)
+    profile = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='id'
+     )
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
@@ -40,3 +46,17 @@ class UserDetailSerializer(UserSerializerMixin):
         style={'input_type': 'password'},
         required=False, allow_blank=True
     )
+
+
+class ProfileSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    picture = serializers.ImageField(use_url=False)
+    user = serializers.PrimaryKeyRelatedField(
+        read_only=True
+    )
+
+    def create(self, validated_data):
+        return Profile.objects.create(**validated_data)
+
+    class Meta:
+        model = Profile

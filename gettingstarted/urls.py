@@ -14,7 +14,7 @@ from usermgmt import urls as usermgmt_urls
 urlpatterns = [
     # url(r'^$', hello.views.index, name='index'),
     url(r'^$', home),
-    url(r'^db', hello.views.db, name='db'),
+    url(r'^db/$', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^user/', include(usermgmt_urls)),
+    url(r'^', include(usermgmt_urls)),
 ]
