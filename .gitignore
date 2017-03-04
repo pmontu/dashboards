@@ -5,3 +5,4 @@ staticfiles
 db.sqlite3
 *.ipynb
 .DS_Store
+static/images
